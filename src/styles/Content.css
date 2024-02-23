@@ -1,9 +1,32 @@
 .contentContainer{
     min-height: 80vh;
     width: 100vw;
-    background: radial-gradient(circle at 10% 20%, rgb(255, 197, 61) 0%, rgb(255, 94, 7) 90%);background-color: orangered;
-    border-radius: 40px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+.leftSide{
+    height: 100%;
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    place-items: center;
+    gap: 20px;
+}
+.rightSide{
+    height: 100%;   
+    width: 30%;
+}
+@media (max-width:950px){
+    .contentContainer{
+    display: block;
+    }
+    .leftSide{
+        width: 100%;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .rightSide{
+        width: 100%;
+    }
+
 }
