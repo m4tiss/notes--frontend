@@ -1,0 +1,9 @@
+.contentContainer{
+    min-height: 80vh;
+    width: 100vw;
+    background: radial-gradient(circle at 10% 20%, rgb(255, 197, 61) 0%, rgb(255, 94, 7) 90%);background-color: orangered;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
