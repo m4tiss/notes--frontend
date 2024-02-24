@@ -12,7 +12,18 @@ const Note = (props) => {
 };
 const backgroundColor = colorMap[props.color] || '#ffffff';
 
-const date = new Date(props.time);
+
+const editHandler=()=>{
+  props.onEdit({
+    title:props.title,
+    body:props.body,
+    _id:props._id,
+    color: props.color,
+    createdAt: props.createdAt
+  });
+}
+
+const date = new Date(props.createdAt);
 const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
@@ -31,7 +42,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
             <p className="noteDescribe">{props.body}</p>
         </div>
         <div className="noteActions">
-            <a className="noteIcon"><FaRegEdit size={40}/></a>
+            <a className="noteIcon" onClick={editHandler}><FaRegEdit size={40}/></a>
             <a className="noteIcon" onClick={() => props.onDelete(props._id)}><IoTrashBinOutline size={40} /></a>
         </div>
 

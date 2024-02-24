@@ -1,0 +1,48 @@
+.editDiv{
+    height: 250px;
+}
+
+.editNoteHeader{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.editNoteInfo{
+    font-weight: 400;
+    padding: 5px
+}
+
+.titleEditInput,.describeEditInput{
+    height: 20px; 
+    background-color: #E6EDf5;
+    border: none;
+    outline: none;
+    width: 200px;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 30px;
+    resize: none;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+.describeEditInput{
+    height: 40px; 
+}
+
+.buttonDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+.sumbitButton,.cancelButton{
+    background-color: var(--note-green);
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+}
+.cancelButton{
+    background-color: var(--note-red);
+}

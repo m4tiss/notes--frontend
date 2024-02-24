@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 import '../styles/Content.css';
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import axios from "../axios";
+import Modal from "react-modal";
 import Note from './Note';
+import EditNote from './EditNote'
 import NewNote from "./NewNote";
 const Content = () => {
 
     const [notes, setNotes] = useState([]);
-
     const [filteredNotes, setFilteredNotes] = useState([]);
+    const [showModal,setShowModal] = useState(false);
+    const [editNote, setEditNote] = useState({});
     const [search,setSearch] = useState("")
-
     const [idIterrator, setIdIterrator] = useState(0);
 
     useEffect(()=>{
@@ -49,7 +51,43 @@ const Content = () => {
       setFilteredNotes(notesToDelete);
     };
 
+
+    
+
+    const toogleModal=()=>{
+      setShowModal(!showModal)
+    }
+
+
+    const editNotes = (note) => {
+
+      axios.put('/editNote/' + note._id,note);
+  
+      const notesToEdit = [...notes];
+      const index = notesToEdit.findIndex(x =>x._id===note._id);
+      if(index>=0){
+        notesToEdit[index] = note;
+        setNotes(notesToEdit);
+        setFilteredNotes(notesToEdit);
+        setSearch("")
+      }
+      toogleModal();
+    }
+
+    const onCancel=()=>{
+      toogleModal();
+      setSearch("");
+      setEditNote({});
+    }
+
+    const editNoteHandler=(note)=>{
+      toogleModal();
+      console.log(showModal)
+      setEditNote( note );
+    }
+
     const handleSearchInputChange = (event) => {
+      console.log(showModal)
       const query = event.target.value;
       if (query.trim() === "") {
           setFilteredNotes(notes);
@@ -64,6 +102,31 @@ const Content = () => {
   };
     return (
       <div className='contentContainer'>
+      <Modal
+      isOpen={showModal}
+      style={{
+        content: {
+          width: '250px',
+          height: '300px', 
+          margin: 'auto',
+          display: 'flex',
+          flexDirection:'column',
+          alignItems:'center',
+          justifyContent:'center'
+        }
+      }}
+      >
+      
+      <EditNote
+       title={editNote.title}
+       body={editNote.body}
+       _id={editNote._id}
+       color={editNote.color}
+       createdAt={editNote.createdAt}
+      onEdit={note=>editNotes(note)}
+      onCancel={onCancel} 
+      />
+      </Modal>
         <div className="leftSide">
         <div className="searchContainer">
             <input
@@ -91,8 +154,8 @@ const Content = () => {
             body = {note.body}
             color = {note.color}
             onDelete = {deleteNote}
-            time = {note.createdAt}
-            // onEdit={editNoteHandler} 
+            createdAt = {note.createdAt}
+            onEdit={editNoteHandler}
             />
                     ))
                 )}
