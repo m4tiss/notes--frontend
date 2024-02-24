@@ -13,7 +13,7 @@ const Note = (props) => {
 const backgroundColor = colorMap[props.color] || '#ffffff';
 
     return (
-      <div className='noteContainer' style={{ backgroundColor }}>
+      <div key={props._id} className='noteContainer' style={{ backgroundColor }}>
         <div className="noteData">
             <h1 className="noteTitle">{props.title}</h1>
             <div className="noteLine">.</div>
@@ -21,7 +21,7 @@ const backgroundColor = colorMap[props.color] || '#ffffff';
         </div>
         <div className="noteActions">
             <a className="noteIcon"><FaRegEdit size={40}/></a>
-            <a className="noteIcon"><IoTrashBinOutline size={40} /></a>
+            <a className="noteIcon" onClick={() => props.onDelete(props._id)}><IoTrashBinOutline size={40} /></a>
         </div>
 
     </div>

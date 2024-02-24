@@ -20,6 +20,15 @@ const Content = () => {
        );
      },[])
 
+
+     const deleteNote = (_id) => {
+      const notesToDelete = notes.filter((note) => note._id !== _id);
+  
+      axios.delete('/deleteNote/'+_id);
+  
+      setNotes(notesToDelete);
+    };
+
     return (
       <div className='contentContainer'>
         <div className="leftSide">
@@ -32,7 +41,8 @@ const Content = () => {
             _id={note._id}
             title={note.title}
             body={note.body}
-            // onDelete={deleteNote}
+            color = {note.color}
+            onDelete={deleteNote}
             // onEdit={editNoteHandler} 
             />
                     ))
