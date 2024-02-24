@@ -8,24 +8,5 @@
     justify-content: space-around;
 }
 .title{
-    color:black
-}
-.searchContainer{
-    height: 40px;
-    min-width: 200px;
-    width: 30vw;
-    background-color: #E6EDf5;
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-}
-.searchInput{
-    border: none;
-    background: none;
-    outline: none;
-    height: 40px;
-    width: 70%;
-    font-size: 20px;
+    color:black;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import '../styles/Content.css';
-import Photo from '../images/note.jpg';
+import { FaMagnifyingGlass } from "react-icons/fa6";
 import axios from "../axios";
 import Note from './Note';
 import NewNote from "./NewNote";
@@ -47,6 +47,15 @@ const Content = () => {
     return (
       <div className='contentContainer'>
         <div className="leftSide">
+        <div className="searchContainer">
+            <input
+                className="searchInput"
+                type="text"
+                placeholder="Search notes..."
+            />
+        <FaMagnifyingGlass />
+        </div>
+
         <NewNote
         onAdd={addNote}
         newID={idIterrator}
