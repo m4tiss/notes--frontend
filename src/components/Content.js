@@ -53,6 +53,7 @@ const Content = () => {
         />
         </div>
         <div className="rightSide">
+  
             {(
             notes.map((note, index) => (
             <Note  key = {note._id}

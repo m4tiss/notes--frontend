@@ -26,7 +26,9 @@ const formattedDate = date.toLocaleDateString('en-US', {
         <div className="noteData">
             <h1 className="noteTitle">{props.title}</h1>
             <div className="noteLine">.</div>
-            <p className="noteDescribe">{props.body}<br/><br/>{formattedDate}</p>
+            <p className="noteDate">{formattedDate}</p>
+            <br/>
+            <p className="noteDescribe">{props.body}</p>
         </div>
         <div className="noteActions">
             <a className="noteIcon"><FaRegEdit size={40}/></a>

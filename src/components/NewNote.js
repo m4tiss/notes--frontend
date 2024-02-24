@@ -49,6 +49,7 @@ const NewNote = (props) => {
                 placeholder="Do homework"
                 value={title}
                 onChange={changeTitleHandler}
+                maxLength={20}
             />
         <p className="newNoteInfo" >Describe</p>
         <textarea
@@ -57,6 +58,7 @@ const NewNote = (props) => {
                 placeholder="Math ex 6"
                 value={body}
                 onChange={changeBodyHandler}
+                maxLength={200}
             />
             <div className="colorInput">
               <input type="radio" id="yellow" name="colors" value="yellow" onChange={changeColorHandler} checked={color === "yellow"} />
