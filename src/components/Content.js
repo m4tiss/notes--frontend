@@ -8,6 +8,7 @@ const Content = () => {
 
     const [notes, setNotes] = useState([]);
 
+    const [idIterrator, setIdIterrator] = useState(0);
 
     useEffect(()=>{
        axios.get('/getAllNotes').then(
@@ -21,6 +22,20 @@ const Content = () => {
      },[])
 
 
+     const addNote = (note) => {
+      const newNotes = [...notes];
+        axios.post('/saveNote', note)
+          .then((res) => {
+            const newNote = res.data;
+            newNotes.push(newNote);
+            setIdIterrator(idIterrator + 1);
+            setNotes(newNotes);
+          })
+          .catch((err) => {
+
+          });
+    };
+
      const deleteNote = (_id) => {
       const notesToDelete = notes.filter((note) => note._id !== _id);
   
@@ -32,17 +47,21 @@ const Content = () => {
     return (
       <div className='contentContainer'>
         <div className="leftSide">
-        <NewNote/>
+        <NewNote
+        onAdd={addNote}
+        newID={idIterrator}
+        />
         </div>
         <div className="rightSide">
             {(
             notes.map((note, index) => (
-            <Note  key={note._id}
-            _id={note._id}
-            title={note.title}
-            body={note.body}
+            <Note  key = {note._id}
+            _id = {note._id}
+            title = {note.title}
+            body = {note.body}
             color = {note.color}
-            onDelete={deleteNote}
+            onDelete = {deleteNote}
+            time = {note.createdAt}
             // onEdit={editNoteHandler} 
             />
                     ))

@@ -12,12 +12,21 @@ const Note = (props) => {
 };
 const backgroundColor = colorMap[props.color] || '#ffffff';
 
+const date = new Date(props.time);
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit'
+});
+
     return (
       <div key={props._id} className='noteContainer' style={{ backgroundColor }}>
         <div className="noteData">
             <h1 className="noteTitle">{props.title}</h1>
             <div className="noteLine">.</div>
-            <p className="noteDescribe">{props.body}</p>
+            <p className="noteDescribe">{props.body}<br/><br/>{formattedDate}</p>
         </div>
         <div className="noteActions">
             <a className="noteIcon"><FaRegEdit size={40}/></a>
