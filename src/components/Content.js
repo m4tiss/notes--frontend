@@ -8,15 +8,17 @@ const Content = () => {
 
     const [notes, setNotes] = useState([]);
 
+    const [filteredNotes, setFilteredNotes] = useState([]);
+    const [search,setSearch] = useState("")
+
     const [idIterrator, setIdIterrator] = useState(0);
 
     useEffect(()=>{
        axios.get('/getAllNotes').then(
          (res)=>{
           const uploadedNotes = res.data;
-          console.log(uploadedNotes);
           setNotes(uploadedNotes);
-          console.log(res.data);
+          setFilteredNotes(uploadedNotes);
          }
        );
      },[])
@@ -30,6 +32,8 @@ const Content = () => {
             newNotes.push(newNote);
             setIdIterrator(idIterrator + 1);
             setNotes(newNotes);
+            setFilteredNotes(newNotes);
+            setSearch("")
           })
           .catch((err) => {
 
@@ -42,8 +46,22 @@ const Content = () => {
       axios.delete('/deleteNote/'+_id);
   
       setNotes(notesToDelete);
+      setFilteredNotes(notesToDelete);
     };
 
+    const handleSearchInputChange = (event) => {
+      const query = event.target.value;
+      if (query.trim() === "") {
+          setFilteredNotes(notes);
+          setSearch("")
+      } else {
+          const filtered = notes.filter(note =>
+              note.title.toLowerCase().includes(query.toLowerCase())
+          );
+          setFilteredNotes(filtered);
+          setSearch(query)
+      }
+  };
     return (
       <div className='contentContainer'>
         <div className="leftSide">
@@ -52,6 +70,8 @@ const Content = () => {
                 className="searchInput"
                 type="text"
                 placeholder="Search notes..."
+                onChange={handleSearchInputChange}
+                value={search}
             />
         <FaMagnifyingGlass />
         </div>
@@ -64,7 +84,7 @@ const Content = () => {
         <div className="rightSide">
   
             {(
-            notes.map((note, index) => (
+            filteredNotes.map((note, index) => (
             <Note  key = {note._id}
             _id = {note._id}
             title = {note.title}
