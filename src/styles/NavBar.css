@@ -2,22 +2,19 @@
     height: 10vh;
     min-height: 80px;
     width: 100vw;
-    background: radial-gradient(circle at 10% 20%, rgb(255, 197, 61) 0%, rgb(255, 94, 7) 90%);background-color: orangered;
     border-radius: 40px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.4);
 }
 .title{
-    color:white
+    color:black
 }
 .searchContainer{
     height: 40px;
     min-width: 200px;
     width: 30vw;
-    background-color: white;
-    /* background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%); */
+    background-color: #E6EDf5;
     border-radius: 40px;
     display: flex;
     align-items: center;

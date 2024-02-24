@@ -1,7 +1,6 @@
 .newNoteContainer{
     width: 300px;
     height: 300px;
-    background: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
         border-radius: 40px;
     display: block;
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.4);

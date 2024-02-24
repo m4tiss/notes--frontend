@@ -1,21 +1,27 @@
 .contentContainer{
     min-height: 80vh;
+    height: 90vh;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.leftSide{
+.rightSide{
+    background-color: #E6EDf5;
     height: 100%;
-    width: 70%;
+    width: 80%;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(3,1fr);
     place-items: center;
     gap: 20px;
+    border-top-left-radius: 50px;
 }
-.rightSide{
+.leftSide{
     height: 100%;   
-    width: 30%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+
 }
 @media (max-width:950px){
     .contentContainer{
