@@ -4,6 +4,7 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import axios from "../axios";
 import Modal from "react-modal";
 import Note from "./Note";
+import { RotatingLines } from 'react-loader-spinner'
 import EditNote from "./EditNote";
 import NewNote from "./NewNote";
 const Content = () => {
@@ -14,6 +15,7 @@ const Content = () => {
   const [currentColor, setCurrentColor] = useState("all");
   const [search, setSearch] = useState("");
   const [idIterrator, setIdIterrator] = useState(0);
+  const [loadingDate,setLoadingDate] = useState(false);
 
   const ColorSorting = [
     {
@@ -45,7 +47,7 @@ const Content = () => {
       const uploadedNotes = res.data;
       setNotes(uploadedNotes);
       setFilteredNotes(uploadedNotes);
-    });
+    }).finally(setLoadingDate(true));
   }, []);
 
   const addNote = (note) => {
@@ -221,18 +223,31 @@ const Content = () => {
         </div>
       </div>
       <div className="rightSide">
-        {filteredNotes.map((note, index) => (
-          <Note
-            key={note._id}
-            _id={note._id}
-            title={note.title}
-            body={note.body}
-            color={note.color}
-            onDelete={deleteNote}
-            createdAt={note.createdAt}
-            onEdit={editNoteHandler}
+      {loadingDate ? (
+          filteredNotes.map((note, index) => (
+            <Note
+              key={note._id}
+              _id={note._id}
+              title={note.title}
+              body={note.body}
+              color={note.color}
+              onDelete={deleteNote}
+              createdAt={note.createdAt}
+              onEdit={editNoteHandler}
+            />
+          ))
+        ) : (
+          <RotatingLines
+            visible={true}
+            height="96"
+            width="96"
+            strokeWidth="5"
+            animationDuration="0.75"
+            ariaLabel="rotating-lines-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
           />
-        ))}
+        )}
       </div>
     </div>
   );
