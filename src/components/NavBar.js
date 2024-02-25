@@ -7,7 +7,7 @@ import logo from '../images/noteLogo.jpg'
 const NavBar = () => {
     return (
       <div className='navBarContainer'>
-        <img src={logo} width={80}/>
+        <img src={logo} width={60}/>
         <h1 className='title'>MY NOTES</h1>
     </div>
     )

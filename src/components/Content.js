@@ -15,6 +15,42 @@ const Content = () => {
     const [search,setSearch] = useState("")
     const [idIterrator, setIdIterrator] = useState(0);
 
+    // --note-red: #ff6961;
+    // --note-yellow: #fdfd64;
+    // --note-blue:#98DDFC;
+    // --note-green:#77dd77;
+
+    const ColorSorting = [
+      {
+          id:1,
+          style: {background: '#fdfd64', color:'black'},
+          child: (
+              <>
+              Yellow
+              </>
+          )
+      },
+      {
+          id:2,
+          style: {background: '#98DDFC', color:'black'},
+          child: (
+              <>
+              Blue
+              </>
+          ),
+      },
+      {
+        id:3,
+        style: {background: '#ff6961', color:'black'},
+        child: (
+            <>
+            Red
+            </>
+        ),
+    },
+      
+    ]
+
     useEffect(()=>{
        axios.get('/getAllNotes').then(
          (res)=>{
@@ -143,6 +179,17 @@ const Content = () => {
         onAdd={addNote}
         newID={idIterrator}
         />
+
+        <div className='noteInteractPanel'>
+                <ul>
+                    {ColorSorting.map(({id,style,child})=>(
+                        <li key={id} className='noteColorPanel' style={style}>
+                            {child}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
         </div>
         <div className="rightSide">
   

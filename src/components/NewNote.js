@@ -65,9 +65,19 @@ const NewNote = (props) => {
               <input type="radio" id="blue" name="colors" value="blue" onChange={changeColorHandler}/>
               <input type="radio" id="red" name="colors" value="red" onChange={changeColorHandler}/>
             </div>
-
-            <div className="newNoteAddDiv"><a className="newNoteAdd" onClick={addNote}><IoAddCircleOutline size={60}/></a></div>
-            
+            {body.trim() === "" || title.trim() === "" ? (
+    <div className="newNoteAddDiv">
+      <a className="newNoteAdd">
+        <IoAddCircleOutline size={60} color="red" />
+      </a>
+    </div>
+  ) : (
+    <div className="newNoteAddDiv">
+      <a className="newNoteAdd" onClick={addNote}>
+        <IoAddCircleOutline size={60}  color="green" />
+      </a>
+    </div>
+  )}
     </div>
     )
   }
