@@ -9,6 +9,7 @@
 .rightSide{
     background-color: #E6EDf5;
     height: 100%;
+    min-width: 300px;
     width: 80%;
     display: flex;
     flex-wrap: wrap;
@@ -59,18 +60,10 @@
     position: fixed;
   }
 .noteColorPanel{
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    color: white;
-    background-color: blue;
     width: 200px; 
     height:50px;
-    padding-left: 4px;
-    padding-right: 4px;
     margin-left: -150px;
     transition-duration: 600ms;
-    font-family: 'Pangolin', cursive;
   }
 .noteColorPanel:hover{
     border-top-right-radius: 20px;
@@ -78,8 +71,15 @@
     margin-left: 0px;
     cursor: pointer;
   }
+  .mobilePanel{
+    display: none;
+  }
 
-@media (max-width:1700px){
+@media (max-width:1750px){
+    .noteInteractPanel{
+        display: none;
+    }
+    
     .contentContainer{
     display: block;
     }
@@ -90,5 +90,22 @@
     .rightSide{
         width: 100%;
     }
-
+    .mobilePanel{
+        display: flex;
+        justify-content: center;
+        width: 375px;
+    }
+    .mobileList{
+        display: flex;
+        justify-content: space-around;
+        list-style-type: none;
+        height: 100px;
+        width: 300px;
+    }
+    .mobileColorPanel{
+        width: 50px;
+        height: 40px;
+        margin: 5px;
+        border-radius: 30px;
+    }
 }

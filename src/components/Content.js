@@ -151,7 +151,7 @@ const Content = () => {
         const selectedColor = ColorSortingTable.find(item => item.color === color);
         setCurrentColor(selectedColor.name);
     };
-    
+
     return (
       <div className='contentContainer'>
       <Modal
@@ -208,7 +208,18 @@ const Content = () => {
                         </li>
                 </ul>
             </div>
-
+            <div className="mobilePanel">
+            <ul  className="mobileList" style={{  }}>
+                    {ColorSorting.map(({id,style,child})=>(
+                        <li key={id} className='mobileColorPanel' style={style} onClick={() => handleColorFilterChange(style.background)}>
+                            {child}
+                        </li>
+                    ))}
+                     <li className='mobileColorPanel' style={{ background: '#E6EDf5' }} onClick={() => handleColorFilterChange('#E6EDf5')}>
+                     <></>
+                        </li>
+                </ul>
+            </div>
         </div>
         <div className="rightSide">
   
