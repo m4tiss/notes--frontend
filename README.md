@@ -1,16 +1,22 @@
 # Simple Notes Application
 Tech Stack:
+
+
 Language: JavaScript
+
 Frontend: React.js
+
 Backend: Express.js
+
 Database: MongoDB
+
 Tools: Mongoose
 
 Deploy with using https://render.com/
 
 Backend: https://github.com/m4tiss/notes-backend
 
-#Short describe appliaction
+# Short describe appliaction
 * Notes are displaying after loading main page
 * You can add new note
 * You can delete note
@@ -20,8 +26,8 @@ Backend: https://github.com/m4tiss/notes-backend
 * You can sort notes by color
 * The application is responsive and adapted for mobile interfaces.
 
-To run the Simple Notes Application(frontend):
+# To run the Simple Notes Application(frontend):
 
-Clone this repository.
-Install dependencies by running: npm install.
-Start the backend server by running: npm start.
+* Clone this repository.
+* Install dependencies by running: npm install.
+* Start the backend server by running: npm start.
