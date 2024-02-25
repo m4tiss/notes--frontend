@@ -12,44 +12,40 @@ const Content = () => {
     const [filteredNotes, setFilteredNotes] = useState([]);
     const [showModal,setShowModal] = useState(false);
     const [editNote, setEditNote] = useState({});
+    const [currentColor,setCurrentColor] = useState("all");
     const [search,setSearch] = useState("")
     const [idIterrator, setIdIterrator] = useState(0);
-
-    // --note-red: #ff6961;
-    // --note-yellow: #fdfd64;
-    // --note-blue:#98DDFC;
-    // --note-green:#77dd77;
 
     const ColorSorting = [
       {
           id:1,
           style: {background: '#fdfd64', color:'black'},
           child: (
-              <>
-              Yellow
-              </>
+              <></>
           )
       },
       {
           id:2,
           style: {background: '#98DDFC', color:'black'},
           child: (
-              <>
-              Blue
-              </>
+              <></>
           ),
       },
       {
         id:3,
         style: {background: '#ff6961', color:'black'},
         child: (
-            <>
-            Red
-            </>
+            <></>
         ),
     },
-      
     ]
+
+    const ColorSortingTable = [
+      { name: "yellow", color: '#fdfd64' }, 
+      { name: "blue", color: '#98DDFC' },
+      { name: "red", color: '#ff6961' },
+      { name: "all", color:'#E6EDf5'}
+  ];
 
     useEffect(()=>{
        axios.get('/getAllNotes').then(
@@ -136,6 +132,26 @@ const Content = () => {
           setSearch(query)
       }
   };
+
+  useEffect(() => {
+    filterNotesByColor();
+  }, [currentColor]);
+
+
+  const filterNotesByColor = () => {
+    if (currentColor === 'all') {
+        setSearch("")
+        setFilteredNotes(notes)
+    } else {
+        setSearch("")
+        setFilteredNotes(notes.filter(note => note.color === currentColor))
+    }
+};
+      const handleColorFilterChange = (color) => {
+        const selectedColor = ColorSortingTable.find(item => item.color === color);
+        setCurrentColor(selectedColor.name);
+    };
+    
     return (
       <div className='contentContainer'>
       <Modal
@@ -183,10 +199,13 @@ const Content = () => {
         <div className='noteInteractPanel'>
                 <ul>
                     {ColorSorting.map(({id,style,child})=>(
-                        <li key={id} className='noteColorPanel' style={style}>
+                        <li key={id} className='noteColorPanel' style={style} onClick={() => handleColorFilterChange(style.background)}>
                             {child}
                         </li>
                     ))}
+                     <li className='noteColorPanel' style={{ background: '#E6EDf5' }} onClick={() => handleColorFilterChange('#E6EDf5')}>
+                     <></>
+                        </li>
                 </ul>
             </div>
 

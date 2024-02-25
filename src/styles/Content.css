@@ -50,15 +50,15 @@
     font-size: 20px;
 }
 
-    .noteInteractPanel{
+.noteInteractPanel{
   
     display: flex;
     flex-direction: column;
-    top:80%;
+    top:75%;
     left:0;
     position: fixed;
   }
-  .noteColorPanel{
+.noteColorPanel{
     display: flex;
     justify-content:space-between;
     align-items: center;
@@ -72,10 +72,11 @@
     transition-duration: 600ms;
     font-family: 'Pangolin', cursive;
   }
-  .noteColorPanel:hover{
+.noteColorPanel:hover{
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     margin-left: 0px;
+    cursor: pointer;
   }
 
 @media (max-width:1700px){
