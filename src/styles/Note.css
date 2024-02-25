@@ -1,65 +1,61 @@
 :root {
-    --note-red: #ff6961;
-    --note-yellow: #fdfd64;
-    --note-blue:#98DDFC;
-  }
+  --note-red: #ff6961;
+  --note-yellow: #fdfd64;
+  --note-blue: #98ddfc;
+}
 
-.noteContainer{
-    width: 300px;
-    height: 300px;
-    border-radius: 40px;
-    display: block;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    margin:30px
-    
+.noteContainer {
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  display: block;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  margin: 30px;
 }
-.noteData{
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    margin-top: 20px;
-    margin-left: 20px;
-    
+.noteData {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 20px;
+  margin-left: 20px;
 }
-.noteActions{
-    height: 30%;
-    display: flex;
-    justify-content: space-evenly;
-    
+.noteActions {
+  height: 30%;
+  display: flex;
+  justify-content: space-evenly;
 }
-.noteTitle{
-    color: black;
-    font-weight: 600;
-    margin: 5px;
-    font-size: 25px;
-
+.noteTitle {
+  color: black;
+  font-weight: 600;
+  margin: 5px;
+  font-size: 25px;
 }
-.noteDescribe{
-    color: black;
-    width: 90%;
-    height: 200px;
-    font-weight: 400;
-    margin: 5px;
-    word-wrap: break-word;
+.noteDescribe {
+  color: black;
+  width: 90%;
+  height: 200px;
+  font-weight: 400;
+  margin: 5px;
+  word-wrap: break-word;
 }
-.noteDate{
-    color: black;
-    font-weight: 300;
-    padding-left: 5px;
+.noteDate {
+  color: black;
+  font-weight: 300;
+  padding-left: 5px;
 }
-.noteIcon{
-    cursor: pointer;
-    height: 40px;
-    transition: 0.4s;
+.noteIcon {
+  cursor: pointer;
+  height: 40px;
+  transition: 0.4s;
 }
-.noteIcon:hover{
-    transform: rotate(45deg);
+.noteIcon:hover {
+  transform: rotate(45deg);
 }
 .noteLine {
-    height: 1px;
-    background: black;
-    opacity: 0.3;
-    width: 260px;
-    margin: 2px;
+  height: 1px;
+  background: black;
+  opacity: 0.3;
+  width: 260px;
+  margin: 2px;
 }

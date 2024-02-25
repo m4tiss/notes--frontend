@@ -1,77 +1,73 @@
 :root {
-    --note-red: #ff6961;
-    --note-yellow: #fdfd64;
-    --note-blue:#98DDFC;
-    --note-green:#77dd77;
-  }
-
-
-.newNoteContainer{
-
-    margin-top: 50px;
-    width: 300px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
+  --note-red: #ff6961;
+  --note-yellow: #fdfd64;
+  --note-blue: #98ddfc;
+  --note-green: #77dd77;
 }
 
-.newNoteHeader{
-    text-align: center;
-    font-size: 30px;
-    font-weight: 500;
+.newNoteContainer {
+  margin-top: 50px;
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
 
+.newNoteHeader {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
 }
-.newNoteInfo{
-    font-weight: 400;
-    padding: 5px;
+.newNoteInfo {
+  font-weight: 400;
+  padding: 5px;
 }
-.titleInput,.describeInput{
-    height: 40px; 
-    background-color: #E6EDf5;
-    border: none;
-    outline: none;
-    width: 280px;
-    padding: 15px;
-    font-size: 20px;
-    border-radius: 30px;
-    resize: none;
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+.titleInput,
+.describeInput {
+  height: 40px;
+  background-color: #e6edf5;
+  border: none;
+  outline: none;
+  width: 280px;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 30px;
+  resize: none;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
-.describeInput{
-    height: 100px;
+.describeInput {
+  height: 100px;
 }
-.newNoteAddDiv{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-
+.newNoteAddDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
-.newNoteAdd{
-    cursor: pointer;
-    padding-left: 20px;
+.newNoteAdd {
+  cursor: pointer;
+  padding-left: 20px;
 }
-.colorInput{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 30px;
-    padding-left: 20px;
+.colorInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-left: 20px;
 }
 
 input[type="radio"] {
-    width: 20px; 
-    height: 20px;
-  }
-
-input[type=radio]#yellow {
-    accent-color: var(--note-yellow);
+  width: 20px;
+  height: 20px;
 }
 
-input[type=radio]#blue {
-    accent-color: var(--note-blue);
-
+input[type="radio"]#yellow {
+  accent-color: var(--note-yellow);
 }
-input[type=radio]#red {
-    accent-color: var(--note-red);
+
+input[type="radio"]#blue {
+  accent-color: var(--note-blue);
+}
+input[type="radio"]#red {
+  accent-color: var(--note-red);
 }
